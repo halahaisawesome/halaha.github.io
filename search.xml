@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[2019牛客暑期多校训练营（第八场）]]></title>
+    <url>%2F2019%2F08%2F10%2FNowcoder-2019-Day8%2F</url>
+    <content type="text"><![CDATA[训练时间: 2019-08-10 Solved A B C D E F G H I J 4 / 11 O O Ø . . . O . . . Comment: O 赛中通过 Ø 赛后通过 ! 提交但未通过 · 没提交 Problem ASolved by dlgump. 04:38(+4)题意:给一个$n \times m$的01矩阵，要求该矩阵能组成的最大且只有1的矩形有多少个。 题解:(待补) Problem BSolved by twice_is_twice. 01:34(+1)题意:给一个长度为$n$的序列，题目要求这个序列所有连续区间的Beauty Values和有多少，Beauty Values的定义是连续区间内不相同的数字量。 题解:先假设所有的区间内的所有数都是不相同的，计算最大Beauty Values为$\sum\limits_{i=1}^n(n-i+1) \times i$，在读入序列时同时记录每个数字所对应的位置。题目的答案是在最大Beauty Values的基础上删去出现重复数字的情况。倘若一个数字的位置量大于2，则一定会出现拥有重复该数的情况。因此不难得到，若以这个数的当前位置以前的位置作为左区间，以这个数的下一个位置以后的位置作为有区间，则这之间的任何一种组合这个数都会重复出现。因此答案即为最大Beauty Values减去所有以上情况。 Problem CUpsolved by Flaaaaaaaag.题意:题目给$m(m\in\left\{2^k|k=1,2,\dotsm,10\right\})$，要求输出一个$m\times m$的由$-1,1$组成的矩阵，要求每两行之间的内积为$0$，内积的定义为$\sum\limits_{i=1}^ns_it_i$。 题解:构造题。 Problem GSolved by dlgump. 01:53(+3)题意:签到题。题目给一个字符串，每次可以删除3个连续的相同字符，问这个字符串最大可以删除多少次。$ATCCCTTG\rightarrow ATTTG\rightarrow AG$ 该字符串最大可以进行2次删除操作，因此答案为2。 题解:用栈模拟，或者计数乱搞。]]></content>
+      <tags>
+        <tag>题解报告</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ICPC Asia Yokohama Regional Contest 2018 题解报告]]></title>
+    <url>%2F2019%2F07%2F31%2FICPC-Asia-Yokohama-Regional-Contest-2018%2F</url>
+    <content type="text"><![CDATA[训练时间: 2019-07-31 Solved A B C D E F G H I J K 4 / 11 O O O . . . Ø . . . . Comment: O 赛中通过 Ø 赛后通过 ! 提交但未通过 · 没提交 题面(GYM) Problem A - Digits Are Not Just CharactersSolved by dlgump. 00:44(+)题意:给你$n+1$个字符串，记录为$s_i(0\leq i\leq n)$，要求$s_i(1\leq i\leq n)$与$s_0$按照题目要求比较，输出当前字符串$s_i$应该位于$s_0$之前还是之后，分别输出$-$与$+$。 题解:按照题目要求处理，遇到字符与数字比较则直接返回字符所处字符串大；字符与字符比较则直接按照ASCII编码比较；数字与数字比较则直接比较大小。最后依据返回结果按照题目要求输出即可。 Problem B - Arithmetic ProgressionsSolved by Flaaaaaaaag. 01:26(+)题意:给予长度为$n$的数组（每个数字独立出现），从中随机挑选（可打乱顺序）组成等差序列，输出等差序列最长长度即为答案。 赛中解题题解:由于题目给了$5000ms$，于是写了假算法，做法是将数组排序，枚举头两个数字$a_i$与$a_j$确认公差$d=a_j-a_i$，再用二分搜索$a_k+d$，一直循环直到搜索不到下一个$a_k+d$，则记录其结果，返回最大值即可，最终通过时用时$2s$。 题解:$dp[i][j]$，$i$与$j$分别表示等差数列的最末尾两个数所在位置，易证前一个数$a[k]=2\times a[i]-a[j]$，由此可以得到状态转移方程。 dp[i][j]= \begin{cases} dp[pos[2\times a[i]-a[j]]][i]+1 & \text{(若能够在数组中找到}2\times a[i]-a[j]\text{)}\\ 2 & \text{(若无法找到)} \end{cases}时间复杂度$O(n^2logn)$ Problem C - Emergency EvacuationSolved by dlgump. 04:22(+2)题意:给予$r,s,p$分别代表行数、每边座位数、以及当前人数。所有人需要紧急撤离，中间过道只有一个座位的宽度，且每个位置一次只能有一个人占用，要求所有人中最晚的一个人离开车所需要花费的时间为多少。 题解:模拟题，可以反着思考这道题目，将离开联想成入座。需要对入座顺序进行排序，远的位置优先入座，紧接着模拟过程即可得到答案。或者可以直接模拟离开也是可以的。 Problem D - Shortest Common Non-SubsequenceUnsolve. Problem E - Eulerian Flight TourUnsolve. Problem F - Fair Chocolate-CuttingUnsolve. Problem G - What Goes Up Must Come DownUpsolved by Flaaaaaaaag.题意:给予一个长度为$n$且可以有重复数字的数组，让你用最少的操作将这个数组调整成山峰形状，即数组最大值的左边为非递减序列、右边为非递增序列，每个操作只能取相邻的两个数字进行交换，输出最少的操作数。 题解:题目的意思很明确就是将某位数字，往左边或者右边移动，使得这个数组成为山峰形状。因此移动的操作数就与当前数的位置有关系，则使用树状数组计算当前这个位置左边比它大的数量有多少记为$l[i]$、右边比它大的数量有多少记为$r[i]$，最终对于每个数，往比它大的数最少的方向移动，则答案为 ans = \sum\limits_{i=1}^nmin(l[i],r[i])时间复杂度$O(n)$ Problem H - Four-ColoringUnsolve. Problem I - Fair RanksUnsolve. Problem J - Colorful TreeUnsolve. Problem K - Sixth SenseUnsolve.]]></content>
+      <tags>
+        <tag>题解报告</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F07%2F09%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[你好，世界？ 当你没钱续服务器了，就会再开一个新的博客。]]></content>
+  </entry>
+</search>
